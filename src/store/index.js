@@ -21,7 +21,7 @@ export const MUTATIONS = {
 export default createStore({
   state: {
     users: [],
-    user: {},
+    user: null,
     page: 1,
     canLoadMore: true,
   },

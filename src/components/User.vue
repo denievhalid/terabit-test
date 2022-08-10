@@ -10,7 +10,7 @@
       />
     </div>
     <div class="user__right">
-      <span class="user__name">{{ fullName }}</span>
+      <span class="user__name">{{ normalizeUserName(user) }}</span>
       <span class="user__email">{{ user.email }}</span>
       <div class="user__controls">
         <router-link
@@ -33,6 +33,7 @@
 <script setup>
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import { normalizeUserName } from "../utils";
 import { ROUTES } from "../router";
 
 const { push } = useRouter();
@@ -53,10 +54,6 @@ const deleteHandler = (id) => {
 const profilePageLink = (id) => {
   return `/detail/${id}`;
 };
-
-const fullName = computed(() => {
-  return `${props.user.first_name} ${props.user.last_name}`;
-});
 </script>
 
 <style lang="scss">
