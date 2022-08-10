@@ -22,6 +22,7 @@
   }
 }
 </style>
+
 <script>
 import TopMenu from "./TopMenu";
 import Logo from "./Logo";

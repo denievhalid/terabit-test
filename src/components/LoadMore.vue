@@ -13,5 +13,3 @@ const clickHandler = () => {
   emit("fetchUsers");
 };
 </script>
-
-<style lang="scss"></style>
