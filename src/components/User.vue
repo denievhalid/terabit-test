@@ -1,5 +1,5 @@
 <template>
-  <div class="user">
+  <div class="user" :class="{ 'user--delete-pending': wailByDelete }">
     <div class="user__left">
       <img
         class="user__avatar"
@@ -31,16 +31,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
 import { normalizeUserName } from "../utils";
-import { ROUTES } from "../router";
+import { ref } from "vue";
 
-const { push } = useRouter();
+const wailByDelete = ref(false);
 
 const emit = defineEmits(["deleteUser"]);
 
-const props = defineProps({
+defineProps({
   user: {
     type: Object,
     required: true,
@@ -48,6 +46,7 @@ const props = defineProps({
 });
 
 const deleteHandler = (id) => {
+  wailByDelete.value = true;
   emit("deleteUser", id);
 };
 
@@ -59,6 +58,21 @@ const profilePageLink = (id) => {
 <style lang="scss">
 .user {
   display: flex;
+  position: relative;
+
+  &--delete-pending {
+    opacity: 0.3;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+    }
+  }
 
   &:hover {
     .user__controls {
