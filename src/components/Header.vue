@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__inner container">
-      <a href="" class="header__logo"></a>
+      <Logo />
       <TopMenu />
     </div>
   </header>
@@ -24,7 +24,8 @@
 </style>
 <script>
 import TopMenu from "./TopMenu";
+import Logo from "./Logo";
 export default {
-  components: { TopMenu },
+  components: { Logo, TopMenu },
 };
 </script>

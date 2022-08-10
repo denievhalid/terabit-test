@@ -37,6 +37,8 @@ body {
 }
 
 .btn {
+  font-size: 15px;
+
   &--small {
     font-size: 12px;
   }
@@ -49,7 +51,7 @@ body {
   }
 
   &--primary {
-    background-color: var(--color-red);
+    background-color: #0cc1f8;
     color: var(--color-white);
   }
 
