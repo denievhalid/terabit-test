@@ -17,8 +17,11 @@ const routes = [
   },
   {
     path: ROUTES.USER_DETAIL,
+    name: "detail",
     component: UserDetail,
-    meta: {},
+    meta: {
+      title: "Профиль пользователя",
+    },
   },
   {
     path: ROUTES.USER_CREATE,
@@ -39,7 +42,9 @@ router.beforeEach((to, from, next) => {
     meta: { title },
   } = to;
 
-  document.title = title.toString();
+  if (title) {
+    document.title = title.toString();
+  }
 
   return next();
 });

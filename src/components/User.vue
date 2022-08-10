@@ -13,8 +13,14 @@
       <span class="user__name">{{ fullName }}</span>
       <span class="user__email">{{ user.email }}</span>
       <div class="user__controls">
+        <router-link
+          class="user__view-profile user__controls-item"
+          :to="profilePageLink(user.id)"
+        >
+          Профиль
+        </router-link>
         <button
-          class="btn btn--small user__delete-btn"
+          class="btn btn--small user__delete-btn user__controls-item"
           @click="deleteHandler(user.id)"
         >
           Удалить
@@ -26,6 +32,10 @@
 
 <script setup>
 import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { ROUTES } from "../router";
+
+const { push } = useRouter();
 
 const emit = defineEmits(["deleteUser"]);
 
@@ -40,6 +50,10 @@ const deleteHandler = (id) => {
   emit("deleteUser", id);
 };
 
+const profilePageLink = (id) => {
+  return `/detail/${id}`;
+};
+
 const fullName = computed(() => {
   return `${props.user.first_name} ${props.user.last_name}`;
 });
@@ -50,7 +64,7 @@ const fullName = computed(() => {
   display: flex;
 
   &:hover {
-    .user__delete-btn {
+    .user__controls {
       opacity: 1;
     }
   }
@@ -80,10 +94,22 @@ const fullName = computed(() => {
     border-radius: 50%;
   }
 
-  &__delete-btn {
-    color: var(--color-red);
+  &__controls {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
+  }
+
+  &__view-profile {
+    font-size: 12px;
+    color: var(--color-primary);
+  }
+
+  &__delete-btn {
+    color: var(--color-red);
+  }
+
+  &__controls-item + .user__controls-item {
+    margin-left: 15px;
   }
 }
 </style>
