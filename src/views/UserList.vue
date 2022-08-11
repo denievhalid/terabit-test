@@ -17,8 +17,8 @@
 import { useStore } from "vuex";
 import User from "../components/User";
 import { computed, onMounted } from "vue";
-import { ACTIONS } from "../store";
 import LoadMore from "../components/LoadMore";
+import { ACTIONS } from "../store/types";
 
 const { dispatch, state } = useStore();
 const canLoadMore = computed(() => state.canLoadMore);

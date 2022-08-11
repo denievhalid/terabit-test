@@ -26,8 +26,8 @@
 import { computed, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { ACTIONS } from "../store";
 import { normalizeUserName } from "../utils";
+import { ACTIONS } from "../store/types";
 
 const route = useRoute();
 

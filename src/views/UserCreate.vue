@@ -49,10 +49,10 @@ const { dispatch } = useStore();
 const isLoading = ref(false);
 
 import { computed, reactive, ref } from "vue";
-import { ACTIONS } from "../store";
 import { ROUTES } from "../router";
 import ErrorMessage from "../components/ErrorMessage";
 import { EMPTY_FORM_FIELDS_ERROR } from "../constants";
+import { ACTIONS } from "../store/types";
 
 const errorMessage = ref("");
 
