@@ -1,8 +1,6 @@
 <template>
   <div class="user-detail page">
-    <div v-if="isLoading">loading...</div>
-
-    <template v-else-if="user">
+    <template v-if="user">
       <h1 class="user-detail__name">{{ normalizeUserName(user) }}</h1>
 
       <div class="user-detail__info">

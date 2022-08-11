@@ -1,22 +1,8 @@
 import { createStore } from "vuex";
 import { User } from "../api";
 import { getRandomNumber } from "../utils";
-
-export const ACTIONS = {
-  FETCH_USER: "fetchUser",
-  FETCH_USERS: "fetchUsers",
-  CREATE_USER: "createUser",
-  DELETE_USER: "deleteUser",
-};
-
-export const MUTATIONS = {
-  SET_USER: "setUser",
-  UNSHIFT_USER: "unshiftUser",
-  PUSH_USERS: "pushUsers",
-  INCREMENT_PAGE: "incrementPage",
-  SET_CAN_LOAD_MORE: "setCanLoadMore",
-  FILTER_USERS: "filterUsers",
-};
+import ACTIONS from "./actions";
+import MUTATIONS from "./mutations";
 
 export default createStore({
   state: {
@@ -74,6 +60,13 @@ export default createStore({
         .catch(Promise.reject);
     },
 
+    /**
+     * Создание нового пользователя
+     *
+     * @param commit
+     * @param credentials
+     * @returns {Promise<AxiosResponse<*> | T>}
+     */
     [ACTIONS.CREATE_USER]({ commit }, credentials) {
       return User.create(credentials)
         .then((user) => {
