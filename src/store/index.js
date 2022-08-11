@@ -1,8 +1,7 @@
 import { createStore } from "vuex";
 import { User } from "../api";
 import { getRandomNumber } from "../utils";
-import ACTIONS from "./actions";
-import MUTATIONS from "./mutations";
+import { ACTIONS, MUTATIONS } from "./types";
 
 export default createStore({
   state: {
