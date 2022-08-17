@@ -1,5 +1,5 @@
 <template>
-  <a href="/">
+  <router-link to="/">
     <svg
       width="150"
       height="30"
@@ -41,7 +41,7 @@
         fill="#0CC1F8"
       />
     </svg>
-  </a>
+  </router-link>
 </template>
 
 <script setup></script>
